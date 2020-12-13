@@ -778,6 +778,7 @@ class TestHTTPCookie < Test::Unit::TestCase
   def test_equal
     assert_not_equal(HTTP::Cookie.new(cookie_values),
       HTTP::Cookie.new(cookie_values(:value => 'bar')))
+    assert_not_equal(HTTP::Cookie.new(cookie_values), true)
   end
 
   def test_new_tld_domain

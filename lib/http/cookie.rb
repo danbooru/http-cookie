@@ -643,6 +643,7 @@ class HTTP::Cookie
   def <=> other
     # RFC 6265 5.4
     # Precedence: 1. longer path  2. older creation
+    return nil if !other.is_a?(HTTP::Cookie)
     (@name <=> other.name).nonzero? ||
       (other.path.length <=> @path.length).nonzero? ||
       (@created_at <=> other.created_at).nonzero? ||
